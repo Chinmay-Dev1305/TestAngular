@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-md-12 mt-3">
+        <table class="table table-striped">
+            <thead>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let post of postList">
+                    <td>{{post.title}}</td>
+                    <td>{{post.description}}</td>
+                    <td>
+                        <img src="{{ post.image}}" width="200px;">
+                    </td>
+                    <td>
+                        <button *ngIf="!post.isAccept && !post.isReject" (click)="accept(post.id)" class="btn btn-success mr-2">Accept</button>
+                        <button *ngIf="!post.isReject && !post.isAccept" (click)="reject(post.id)" class="btn btn-danger">Reject</button>
+                        <label *ngIf="post.isAccept">Accepted</label>
+                        <label *ngIf="post.isReject">Rejected</label>
+                        <input *ngIf="!post.isAccept && !post.isReject" [(ngModel)]="rejectReason" class="form-control mt-1" type="text" placeholder="Reject Reason...">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+﻿<div class="p-4">
+    <div class="container">
+        <h3>Feeds</h3>
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <table class="table table-striped">
+                    <thead>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Status</th>
+                        <th>Reason</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let post of postList">
+                            <td>{{post.title}}</td>
+                            <td>{{post.description}}</td>
+                            <td>
+                                <img src="{{ post.image}}" width="200px;">
+                            </td>
+                            <td>{{post.isAccept ? 'Accepted' : ''}} {{post.isReject ? 'Rejected' : ''}}</td>
+                            <td>{{post.rejectionReason}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
